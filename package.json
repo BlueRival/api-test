@@ -1,7 +1,7 @@
 {
   "name":            "api-test",
   "description":     "This service is designed for testing HTTP/S proxies and other services. It is a minimal API service.",
-  "version":         "0.0.1",
+  "version":         "0.0.2",
   "contributors":    [
     "Anthony Hildoer <anthony@bluerival.com>"
   ],
