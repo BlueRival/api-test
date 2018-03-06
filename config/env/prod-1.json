@@ -1,0 +1,17 @@
+{
+  "log":       {
+    "level": "info"
+  },
+	"webServer": {
+    "cors":         [ ],
+		"cookieSecret": "1234567890",
+		"http":         {
+			"enabled": true,
+			"port":    9080
+		},
+		"https":        {
+			"enabled": true,
+			"port":    9443
+		}
+	}
+}

@@ -1,0 +1,13 @@
+FROM bluerival/nodejs:6.12.0
+
+WORKDIR /opt/app
+
+EXPOSE 8080
+
+# Mount host source to docker path
+VOLUME [ "/opt/app" ]
+
+# By default we don't run the node app in development.
+# Between docker create and start, npm run install-modules should be run
+
+CMD [ "/bin/bash" ]

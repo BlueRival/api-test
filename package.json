@@ -1,0 +1,42 @@
+{
+  "name":            "api-test",
+  "description":     "This service is designed for testing HTTP/S proxies and other services. It is a minimal API service.",
+  "version":         "0.0.1",
+  "contributors":    [
+    "Anthony Hildoer <anthony@bluerival.com>"
+  ],
+  "scripts":         {
+    "docker-create":   "docker build -f Dockerfile.develop --label=api.test.develop -t api/test:develop --compress .",
+    "docker-destroy":  "docker stop $(docker ps -qa --filter=label=api.test.develop); docker rm $(docker ps -qa --filter=label=api.test.develop); docker rmi $(docker images -q --filter=label=api.test.develop)",
+    "docker":          "docker run -it --rm -v `pwd`:/opt/app --name=api-test-docker api/test:develop /bin/bash",
+    "install-modules": "docker run -it --rm -v `pwd`:/opt/app --name=api-test-install-modules api/test:develop npm install",
+    "update-modules":  "docker run -it --rm -v `pwd`:/opt/app --name=api-test-update-modules api/test:develop npm update",
+    "test":            "docker run -it --rm -v `pwd`:/opt/app --name=api-test api/test:develop node server.js",
+    "start":           "docker run -it --rm -p 8080:8080 -v `pwd`:/opt/app --name=api-test api/test:develop node server.js"
+  },
+  "repository":      {
+    "type": "git",
+    "url":  "git@bitbucket.org:bluerival/api-test.git"
+  },
+  "dependencies":    {
+    "async":         "2.6.0",
+    "body-parser":   "1.18.2",
+    "compression":   "1.7.2",
+    "cookie-parser": "1.4.3",
+    "daemonix":      "2.0.0",
+    "doublescore":   "0.3.7",
+    "express":       "4.16.2",
+    "nconf":         "0.10.0",
+    "sidi":          "0.0.2",
+    "winston":       "2.4.0"
+  },
+  "devDependencies": {
+    "mocha": "5.0.2",
+    "nock":  "9.2.3"
+  },
+  "keywords":        [ ],
+  "engines":         {
+    "node": "6.12.2"
+  },
+  "license":         "MIT"
+}

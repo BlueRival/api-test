@@ -1,0 +1,4 @@
+# ignore everyone's self-signed certificates
+server.crt
+server.csr
+server.key
